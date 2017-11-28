@@ -1,0 +1,16 @@
+body {
+  padding: 30px;
+  font: 14px "Arial Narrow", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #ff8211;
+}
+
+.button {
+  display:inline-table;
+  font-size:1.00em;
+  padding:8px 0;
+  text-align:center;
+  width:120px;
+}

@@ -1,0 +1,16 @@
+{
+  "name": "rentui",
+  "description": "Sitio web para gestionar la renta de casas",
+  "main": "",
+  "authors": [
+    "Luis Enrique Garcia <legarcia2904@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/legarcia2904/rentui.git",
+  "dependencies": {
+    "angular": "^1.6.6",
+    "bootstrap": "^3.3.7",
+    "components-font-awesome": "^4.7.0",
+    "angular-route": "^1.6.6"
+  }
+}
