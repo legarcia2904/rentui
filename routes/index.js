@@ -11,31 +11,32 @@ var Ctrl = require('../controllers/RentaController');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Rentui' });
+  res.render('index', { title: 'Casas en Renta' });
 });
 
 router.route('/casas')
-		.get(Ctrl.getCasas)
-		.post(upload.array(),Ctrl.addCasas);
+		.get(Ctrl.getCasas) //Devuelve todas las casas
+		.post(upload.array(),Ctrl.addCasas); //Crea una nueva casa
 
 
 router.route('/casas/:id')
-		.put(upload.array(),Ctrl.updateCasa) 
-		.delete(Ctrl.deleteCasa);
+    	.get(Ctrl.getCasaById) //Devuelve la casa con el ID indicado. TODO
+		.put(upload.array(),Ctrl.updateCasa)  //Actualiza la casa con el ID indicado.
+		.delete(Ctrl.deleteCasa); //Elimina la casa con el ID indicado.
 
 
 router.route('/arrendadores')
 		.get(Ctrl.getArrendadores)//devolver todos los arrendadores
-		.post(upload.array(),Ctrl.addArrendador);
+		.post(upload.array(),Ctrl.addArrendador); //Crea un nuevo arrendador
 
  router.route('/arrendadores/:nombre')
-		.put(upload.array(),Ctrl.updateArrendador); 
+		.put(upload.array(),Ctrl.updateArrendador);  //Actualiza un arrendador dado su nombre TODO
 
 router.route('/arrendadores/:id/casas')
-		.get(Ctrl.getByArrendador);
+		.get(Ctrl.getByArrendador);  //Devuelve las casas de un arrendador dado su ID
 
 router.route('/arrendadores/:id')
-		.delete(Ctrl.deleteArrendador); 
+		.delete(Ctrl.deleteArrendador);  //Elimina un arrendador dado su ID
 
 		module.exports = router; 
 

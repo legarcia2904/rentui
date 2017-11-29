@@ -2,9 +2,14 @@
 
 ## Introducción
 
-Rentui es un sitio web para gestionar renta de casas. Provee las funcionalidades para acceder a los datos de las casas y de los arrendatarios que publican las ofertas.<br>
-
+Rentui es un sitio web para gestionar casas en Renta. <br>
+Provee las funcionalidades para acceder a los datos de las casas y de los arrendatarios que publican las ofertas.<br>
 El formato de la información es JSON.<br>
+
+## Requisitos:
+- Mostrar el mapa de Google Maps con las casas señaladas.
+- Mostrar el listado de casas en renta. Con los botones para permitir visualizar, modificar y eliminar una casa.
+
 
 ## Pasos para ejecutar
 

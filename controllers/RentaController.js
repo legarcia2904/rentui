@@ -40,7 +40,21 @@ exports.getCasas=function(req,res,next){
 	});
 
 };
- 
+
+//Devuelve la casa con el ID indicado. TODO
+exports.getCasaById = function(req, res, next){
+    Casa.findById(req.params.id).populate('arrendador').exec(function (err, casaIndicada) {
+        if(err){
+            return res.status(500).jsonp({error:'500', descrip:err.message});
+        }
+        if(casaIndicada){
+            console.log('GET /casas:id');
+            return res.status(200).jsonp(casaIndicada);
+        }else{
+            return res.status(500).jsonp({error:'500', descrip:"La casa con ese ID no existente"});
+        }
+    });
+};
 
 //FUNCION QUE ACTUALIZA LA INFORMACION DE UNA CASA ESPECIFICADO EN EL ID
 exports.updateCasa = function(req,res,next){

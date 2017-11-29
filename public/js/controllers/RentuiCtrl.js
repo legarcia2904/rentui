@@ -1,7 +1,7 @@
 angular.module('controladores.rentui', ['servicios.rentui']).controller('RentaController', RentaController);
 
 function RentaController($scope, Casa){
-  $scope.titulo = 'Rentui';
+  $scope.titulo = 'Casas en Renta';
 
   $scope.casa = {};
   Casa.getCasas();
