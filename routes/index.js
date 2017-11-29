@@ -20,7 +20,7 @@ router.route('/casas')
 
 
 router.route('/casas/:id')
-    	.get(Ctrl.getCasaById) //Devuelve la casa con el ID indicado. TODO
+    	.get(Ctrl.getCasaById) //Devuelve la casa con el ID indicado.
 		.put(upload.array(),Ctrl.updateCasa)  //Actualiza la casa con el ID indicado.
 		.delete(Ctrl.deleteCasa); //Elimina la casa con el ID indicado.
 
@@ -30,7 +30,7 @@ router.route('/arrendadores')
 		.post(upload.array(),Ctrl.addArrendador); //Crea un nuevo arrendador
 
  router.route('/arrendadores/:nombre')
-		.put(upload.array(),Ctrl.updateArrendador);  //Actualiza un arrendador dado su nombre TODO
+		.put(upload.array(),Ctrl.updateArrendador);  //Actualiza un arrendador dado su nombre
 
 router.route('/arrendadores/:id/casas')
 		.get(Ctrl.getByArrendador);  //Devuelve las casas de un arrendador dado su ID

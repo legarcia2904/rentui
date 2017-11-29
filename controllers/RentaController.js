@@ -41,7 +41,7 @@ exports.getCasas=function(req,res,next){
 
 };
 
-//Devuelve la casa con el ID indicado. TODO
+//Devuelve la casa con el ID indicado.
 exports.getCasaById = function(req, res, next){
     Casa.findById(req.params.id).populate('arrendador').exec(function (err, casaIndicada) {
         if(err){
