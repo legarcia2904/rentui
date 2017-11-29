@@ -1,100 +1,100 @@
 <!DOCTYPE html>
 <html ng-app="rentuiApp">
-  <head>
+<head>
     <link rel="stylesheet" href="">
     <title><%= title %></title>
     <link rel='stylesheet' href='/css/style.css' />
     <link rel="stylesheet" type="text/css" href="/lib/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/lib/components-font-awesome/css/font-awesome.css">
-  </head>
-  <body ng-controller="RentaController">
-    <h1><%= title %></h1>
+</head>
+<body ng-controller="RentaController">
+<h1><%= title %></h1>
 
-    <!--Datos-->
-    <div class="panel panel-default">
-        <div class="panel-heading">Listado de Casas</div>
-        <div class="panel-body">
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <td>Dirección</td>
-                    <td>Habitaciones</td>
-                    <td>Precio</td>
-                    <td>Contrato</td>
-                    <td></td>
-                </tr>
-                </thead>
-                <tbody>
-                <tr ng-repeat="casa in casas" >
-                    <td>{{casa.direccion}}</td>
-                    <td>{{casa.habitaciones}}</td>
-                    <td>{{casa.precio}}</td>
-                    <td>{{casa.contrato}}</td>
-                    <td>
-                        <a ng-click="findCasa(casa._id)" title="Listar"><span class="fa fa-eye fa-fw"></span></a>&nbsp;&nbsp;&nbsp;
-                        <a ng-click="showCasa(casa._id)" title="Modificar"><span class="fa fa-pencil fa-fw"></span></a>&nbsp;&nbsp;
-                        <a ng-click="deleteCasa(casa._id)" title="Borrar"><span class="fa fa-trash fa-fw"></span></a>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
+<!--Datos-->
+<div class="panel panel-default">
+    <div class="panel-heading">Listado de Casas</div>
+    <div class="panel-body">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <td>Dirección</td>
+                <td>Habitaciones</td>
+                <td>Precio</td>
+                <td>Contrato</td>
+                <td></td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="casa in casas" >
+                <td>{{casa.direccion}}</td>
+                <td>{{casa.habitaciones}}</td>
+                <td>{{casa.precio}}</td>
+                <td>{{casa.contrato}}</td>
+                <td>
+                    <a ng-click="findCasa(casa._id)" title="Listar"><span class="fa fa-eye fa-fw"></span></a>&nbsp;&nbsp;&nbsp;
+                    <a ng-click="showCasa(casa._id)" title="Modificar"><span class="fa fa-pencil fa-fw"></span></a>&nbsp;&nbsp;
+                    <a ng-click="deleteCasa(casa._id)" title="Borrar"><span class="fa fa-trash fa-fw"></span></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
 
-        </div>
     </div>
-    <!-- fin Datos -->
-    <!--Inicio Formulario-->
-    <div class="panel panel-default">
-        <div class="panel-heading">Formulario</div>
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="row">
-                        <input id="direccion" class="form-control" type="hidden" ng-model="casa._id"><br>
-                        <div class="col-md-3">
-                            <label for="direccion">Dirección</label>
-                            <input id="direccion" class="form-control" type="text" ng-model="casa.direccion"><br>
-                        </div>
-                        <div class="col-md-3">
-                            <label for="latitud">Latitud</label>
-                            <input id="latitud" class="form-control" type="text" ng-model="casa.latitud"><br>
-                        </div>
-                        <div class="col-md-3">
-                            <label for="longitud">Longitud</label>
-                            <input id="longitud" class="form-control" type="text" ng-model="casa.longitud"><br>
-                        </div>
-                        <div class="col-md-3">
-                            <label for="habitaciones">Habitaciones</label>
-                            <input id="habitaciones" class="form-control" type="text" ng-model="casa.habitaciones"><br>
-                        </div>
-                        <div class="col-md-3">
-                            <label for="precio">Precio</label>
-                            <input id="precio" class="form-control" type="text" ng-model="casa.precio"><br>
-                        </div>
-                        <div class="col-md-3">
-                            <label for="contrato">Contrato</label>
-                            <input id="contrato" class="form-control" type="text" ng-model="casa.contrato"><br>
-                        </div>
-                        <div class="col-md-3">
-                            <label for="arrendador">Arrendador</label>
-                            <input id="arrendador" class="form-control" type="text" ng-model="casa.arrendador"><br>
-                        </div>
+</div>
+<!-- fin Datos -->
+<!--Inicio Formulario-->
+<div class="panel panel-default">
+    <div class="panel-heading">Formulario</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <input id="direccion" class="form-control" type="hidden" ng-model="casa._id"><br>
+                    <div class="col-md-3">
+                        <label for="direccion">Dirección</label>
+                        <input id="direccion" class="form-control" type="text" ng-model="casa.direccion"><br>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="latitud">Latitud</label>
+                        <input id="latitud" class="form-control" type="text" ng-model="casa.latitud"><br>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="longitud">Longitud</label>
+                        <input id="longitud" class="form-control" type="text" ng-model="casa.longitud"><br>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="habitaciones">Habitaciones</label>
+                        <input id="habitaciones" class="form-control" type="text" ng-model="casa.habitaciones"><br>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="precio">Precio</label>
+                        <input id="precio" class="form-control" type="text" ng-model="casa.precio"><br>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="contrato">Contrato</label>
+                        <input id="contrato" class="form-control" type="text" ng-model="casa.contrato"><br>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="arrendador">Arrendador</label>
+                        <input id="arrendador" class="form-control" type="text" ng-model="casa.arrendador"><br>
                     </div>
                 </div>
             </div>
-
-            <button type="button" class="btn btn-danger" ng-click="addCasa()">Crear</button>&nbsp;&nbsp;
-            <button type="button" class="btn btn-danger" ng-click="updateCasa(casa)">Modificar</button>
         </div>
-    </div>
-    <!--Fin Formulario-->
 
-  </body>
-    <!-- Scripts -->
-    <script type="text/javascript" src="/lib/jquery/dist/jquery.js"></script>
-    <script type="text/javascript" src="/lib/angular/angular.js"></script>
-    <script type="text/javascript" src="/js/services/rentuiServ.js"></script>
-    <script type="text/javascript" src="/js/controllers/RentuiCtrl.js"></script>
-    <script type="text/javascript" src="/js/main.js"></script>
-    <script type="text/javascript" src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-  </body>
+        <button type="button" class="btn btn-danger" ng-click="addCasa()">Crear</button>&nbsp;&nbsp;
+        <button type="button" class="btn btn-danger" ng-click="updateCasa(casa)">Modificar</button>
+    </div>
+</div>
+<!--Fin Formulario-->
+
+</body>
+<!-- Scripts -->
+<script type="text/javascript" src="/lib/jquery/dist/jquery.js"></script>
+<script type="text/javascript" src="/lib/angular/angular.js"></script>
+<script type="text/javascript" src="/js/services/rentuiServ.js"></script>
+<script type="text/javascript" src="/js/controllers/RentuiCtrl.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+<script type="text/javascript" src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
 </html>
