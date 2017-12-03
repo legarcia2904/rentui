@@ -15,13 +15,19 @@ exports.addCasas = function(req,res,next){
         arrendador : req.body.arrendador
     });
 
-    casa.save(function(err,casa){
-        if(err) return res.send(500,err.message);
-        res.status(200).jsonp(casa);
+    casa.save(function (err, casa) {
+        if(err){
+            return res.status(500).jsonp({error:'500', descrip:err.message});
+        }
+        else{
+            Casa.findById(casa._id).populate('arrendador').exec(function (err, arrendador) {
+                if(err) return res.status(500).jsonp({error:'500', descrip:err.message});
+                res.status(200).jsonp(casa);
+            })
+        }
     });
 
 };
-
 //FUNCION QUE REGRESA TODAS LAS CASAS
 exports.getCasas=function(req,res,next){
     console.log('GET /casas');
@@ -81,7 +87,6 @@ exports.updateCasa = function(req,res,next){
         }
     });
 };
-
 
 //FUNCION QUE ELIMINA UNA CASA
 exports.deleteCasa= function(req,res,next){
@@ -244,6 +249,3 @@ exports.deleteArrendador = function(req,res,next){
         }
     });
 };
-
-
-
