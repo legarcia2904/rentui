@@ -209,20 +209,16 @@ exports.deleteArrendador = function(req,res,next){
 
     Arrendador.find({_id: req.params.id},function(err,casas){
         if(err){
+            console.log('ERROR en DELETE no aparece ID');
             res.send(500,err.message);
-        }else{
-            console.log(req.params.id);
-            Casa.remove({arrendador: req.params.id},function(err,casas){
+        }
+        else{
+            Arrendador.remove({_id: req.params.id},function(err,casas){
                 if(err){
-                    res.send(500, err.message);
+                    console.log('ERROR en DELETE no se pudo eliminar');
+                    res.send(500,err.message);
                 }else{
-                    Arrendador.remove({_id: req.params.id},function(err,casas){
-                        if(err){
-                            res.send(500,err.message);
-                        }else{
-                            res.status(200).jsonp(casas);
-                        }
-                    });
+                    res.status(200).jsonp(casas);
                 }
             });
         }
