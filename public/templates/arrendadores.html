@@ -14,7 +14,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#!casas">Gestionar Casas <span class="sr-only">(current)</span></a></li>
+                <li><a href="#!casas">Gestionar Casas <span class="sr-only">(current)</span></a></li>
                 <li><a href="#!arrendadores">Gestionar Arrendadores</a></li>
             </ul>
             <form class="navbar-form navbar-left">
@@ -36,15 +36,17 @@
         <table class="table table-hover">
             <thead>
             <tr>
-                <td>Nombre</td>
-                <td>Apellidos</td>
-                <td>Teléfono</td>
-                <td>Correo</td>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Teléfono</th>
+                <th>Correo</th>
                 <td></td>
             </tr>
             </thead>
             <tbody>
             <tr ng-repeat="arrendador in arrendadores" >
+                <td>{{$index + 1}}</td>
                 <td>{{arrendador.nombre}}</td>
                 <td>{{arrendador.apellidos}}</td>
                 <td>{{arrendador.telefono}}</td>
