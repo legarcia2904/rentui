@@ -1,13 +1,69 @@
 <h1>Casas en Renta</h1>
 <a href="#!casas"> Gestionar Casas</a>
 <a href="#!arrendadores"> Gestionar Arrendadores</a>
+</br>
+</br>
+<!--Datos Casas-->
+<div class="panel panel-default">
+    <div class="panel-heading">Listado de Casas</div>
+    <div class="panel-body">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <td>Dirección</td>
+                <td>Habitaciones</td>
+                <td>Precio</td>
+                <td>Contrato</td>
+                <td>Arrendador</td>
+                <td></td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="casa in casas" >
+                <td>{{casa.direccion}}: {{casa.latitud}}, {{casa.longitud}}</td>
+                <td>{{casa.habitaciones}}</td>
+                <td>{{casa.precio}}</td>
+                <td>{{casa.contrato}}</td>
+                <td>{{casa.arrendador.nombre}} {{casa.arrendador.apellidos}}</td>
+                <td>
+                    <a ng-click="findCasa(casa._id)" title="Listar"><span class="fa fa-eye fa-fw"></span></a>&nbsp;&nbsp;&nbsp;
+                </td>
+            </tr>
+            </tbody>
+        </table>
 
+    </div>
+</div>
 
+<!--Detalles del arrendador de una casa-->
+<div class="panel panel-default">
+    <div class="panel-heading">Detalles del Arrendador de la casa</div>
+    <div class="panel-body">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <td>Nombre</td>
+                <td>Apellidos</td>
+                <td>Telefono</td>
+                <td>Correo</td>
+                <td></td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{casa.arrendador.nombre}}</td>
+                <td>{{casa.arrendador.apellidos}}</td>
+                <td>{{casa.arrendador.telefono}}</td>
+                <td>{{casa.arrendador.correo}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+</br>
+</br>
 <!-- Mapa-->
-<ng-map zoom="15" center="[31.8698314, -116.6515874]">
+<ng-map zoom="15" center="[{{casa.latitud}}, {{casa.longitud}}]">
     <marker id="marcador" position="[{{casa.latitud}}, {{casa.longitud}}]" animation="Animation.DROP"></marker>
 </ng-map>
-
-<!--<ng-map zoom="15" center="[{{oferta.lat}}, {{oferta.lon}}]">-->
-    <!--<marker id="marcador" position="[{{oferta.lat}}, {{oferta.lon}}]" animation="Animation.DROP"></marker>-->
-<!--</ng-map>-->
