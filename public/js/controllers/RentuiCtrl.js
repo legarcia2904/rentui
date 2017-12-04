@@ -14,6 +14,7 @@ function RentaController($scope, Casa){
     $scope.addCasa = function () {
         Casa.addCasa($scope.casa);
         $scope.casa = {};
+	    Casa.getCasas();
     };
     $scope.showCasa = function (id) {
         Casa.casas_edit={};
@@ -34,10 +35,12 @@ function RentaController($scope, Casa){
     $scope.updateCasa = function(casa){
         Casa.updateCasa(casa);
         $scope.casa = {};
+	    Casa.getCasas();
     };
     $scope.deleteCasa = function(id){
         Casa.deleteCasa(id);
         $scope.casa = {};
+        Casa.getCasas();
     };
 };
 
@@ -74,9 +77,11 @@ function ArrrendadorController($scope, Arrendador){
     $scope.updateArrendador = function(arrendador){
         Arrendador.updateArrendador(arrendador);
         $scope.arrendador = {};
+        Arrendador.getArrendadores();
     };
     $scope.deleteArrendador = function(id){
         Arrendador.deleteArrendador(id);
         $scope.arrendador = {};
+        Arrendador.getArrendadores();
     };
 };
