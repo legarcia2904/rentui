@@ -2,7 +2,7 @@ angular.module('controladores.rentui', ['servicios.rentui'])
     .controller('CasaController', CasaController)
     .controller('ArrendadorController', ArrendadorController);
 
-function CasaController($scope, Casa){
+function CasaController($scope, Casa, Arrendador){
     $scope.titulo = 'Casas en Renta';
 
     $scope.casa = {};
@@ -57,6 +57,7 @@ function ArrendadorController($scope, Arrendador){
     $scope.addArrendador = function () {
         Arrendador.addArrendador($scope.arrendador);
         $scope.arrendador = {};
+        Arrendador.getArrendadores();
     };
     $scope.showArrendador = function (id) {
         Arrendador.arrendadores_edit={};
