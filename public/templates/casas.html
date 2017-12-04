@@ -83,15 +83,8 @@
                 </div>
             </div>
         </div>
-
         <button type="button" class="btn btn-danger" ng-click="addCasa()">Crear</button>&nbsp;&nbsp;
         <button type="button" class="btn btn-danger" ng-click="updateCasa(casa)">Modificar</button>
-
-        <!-- Mapa-->
-        <ng-map zoom="15" center="[{{casa.latitud}}, {{casa.longitud}}]">
-            <marker id="marcador" position="[{{casa.latitud}}, {{casa.longitud}}]" animation="Animation.DROP"></marker>
-        </ng-map>
-
     </div>
 </div>
 <!--Fin Formulario Casas-->

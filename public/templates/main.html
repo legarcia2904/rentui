@@ -1,3 +1,13 @@
 <h1>Casas en Renta</h1>
 <a href="#!casas"> Gestionar Casas</a>
 <a href="#!arrendadores"> Gestionar Arrendadores</a>
+
+
+<!-- Mapa-->
+<ng-map zoom="15" center="[31.8698314, -116.6515874]">
+    <marker id="marcador" position="[{{casa.latitud}}, {{casa.longitud}}]" animation="Animation.DROP"></marker>
+</ng-map>
+
+<!--<ng-map zoom="15" center="[{{oferta.lat}}, {{oferta.lon}}]">-->
+    <!--<marker id="marcador" position="[{{oferta.lat}}, {{oferta.lon}}]" animation="Animation.DROP"></marker>-->
+<!--</ng-map>-->

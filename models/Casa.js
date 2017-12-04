@@ -13,7 +13,5 @@ var casaSchema = new Schema({
     arrendador: {type: Schema.ObjectId, ref: "Arrendador" , require: true}
 });
 
-
-
 //Convertir un modelo que esta en el cache de mongoose
 module.exports = mongoose.model('Casa',casaSchema);
