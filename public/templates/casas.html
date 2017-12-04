@@ -1,6 +1,6 @@
 <h1>Gestionar Casas</h1>
 <a href="#/"> Inicio</a>
-<a href="#!arrendadores"> Arrendadores</a>
+<a href="#!arrendadores"> Gestionar Arrendadores</a>
 </br>
 </br>
 <!--Datos Casas-->
@@ -69,10 +69,14 @@
                         <label for="contrato">Contrato</label>
                         <input id="contrato" class="form-control" type="text" ng-model="casa.contrato"><br>
                     </div>
+                    <!--<div class="col-md-3">-->
+                        <!--<label for="arrendador">Arrendador</label>-->
+                        <!--<input id="arrendador" class="form-control" type="text" ng-model="casa.arrendador"><br>-->
+                    <!--</div>-->
                     <div class="col-md-3">
                         <label for="arrendador">Arrendador</label>
                         <select id="arrendador" class="form-control" ng-model="casa.arrendador">
-                            <option value="{{arrendador.nombre}} {{arrendador.apellidos}}" ng-repeat="arrendador in arrendadores">
+                            <option value="{{arrendador._id}}" ng-repeat="arrendador in arrendadores">
                                 {{arrendador.nombre}} {{arrendador.apellidos}} </option>
                         </select>
                     </div>

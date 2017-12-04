@@ -14,20 +14,43 @@ exports.addCasas = function(req,res,next){
         contrato : req.body.contrato,
         arrendador : req.body.arrendador
     });
-
     casa.save(function (err, casa) {
         if(err){
             return res.status(500).jsonp({error:'500', descrip:err.message});
         }
         else{
-            Casa.findById(casa._id).populate('arrendador').exec(function (err, arrendador) {
-                if(err) return res.status(500).jsonp({error:'500', descrip:err.message});
-                res.status(200).jsonp(casa);
-            })
+            res.status(200).jsonp(casa);
         }
     });
 
 };
+
+// exports.addCasas = function(req,res,next){
+//     console.log('POST /casas');
+//     var casa = new Casa({
+//         direccion : req.body.direccion,
+//         latitud : req.body.latitud,
+//         longitud : req.body.longitud,
+//         habitaciones : req.body.habitaciones,
+//         precio : req.body.precio,
+//         contrato : req.body.contrato,
+//         arrendador : req.body.arrendador
+//     });
+//
+//     casa.save(function (err, casa) {
+//         if(err){
+//             return res.status(500).jsonp({error:'500', descrip:err.message});
+//         }
+//         else{
+//             Casa.findById(casa._id).populate('arrendador').exec(function (err, arrendador) {
+//                 if(err) return res.status(500).jsonp({error:'500', descrip:err.message});
+//                 res.status(200).jsonp(casa);
+//             })
+//         }
+//     });
+//
+// };
+
 //FUNCION QUE REGRESA TODAS LAS CASAS
 exports.getCasas=function(req,res,next){
     console.log('GET /casas');
@@ -68,7 +91,7 @@ exports.updateCasa = function(req,res,next){
     console.log(req.params.id);
     console.log(req.body);
     Casa.update({_id: req.params.id},{$set:{direccion:req.body.direccion,habitaciones:req.body.habitaciones,
-        precio: req.body.precio,contrato:req.body.contrato}},function(err, casas){
+        precio: req.body.precio,contrato:req.body.contrato,arrendador:req.body.arrendador}},function(err, casas){
         if(err){
             res.send(500, err.message);
             console.log('error');
@@ -78,10 +101,10 @@ exports.updateCasa = function(req,res,next){
                 if(err){
                     res.send(500, err.message);
                 }else{
-                    console.log('GET/casas');
-                    Arrendador.populate(casas,{path: "arrendador"},function(err,casas){
+                    // console.log('GET/casas');
+                    // Arrendador.populate(casas,{path: "arrendador"},function(err,casas){
                         res.status(200).send(casas);
-                    });
+                    // });
                 }
             });
         }
