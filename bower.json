@@ -11,6 +11,8 @@
     "angular": "^1.6.6",
     "bootstrap": "^3.3.7",
     "components-font-awesome": "^4.7.0",
-    "angular-route": "^1.6.6"
+    "angular-route": "^1.6.7",
+    "ngmap": "^1.18.4",
+    "google-maps": "^3.2.1"
   }
 }

@@ -1,8 +1,8 @@
 angular.module('controladores.rentui', ['servicios.rentui'])
-    .controller('RentaController', RentaController)
+    .controller('CasaController', CasaController)
     .controller('ArrendadorController', ArrendadorController);
 
-function RentaController($scope, Casa){
+function CasaController($scope, Casa){
     $scope.titulo = 'Casas en Renta';
 
     $scope.casa = {};
@@ -44,8 +44,7 @@ function RentaController($scope, Casa){
     };
 };
 
-//** Arrendador
-function ArrrendadorController($scope, Arrendador){
+function ArrendadorController($scope, Arrendador){
     $scope.titulo = 'Arrendadores';
 
     $scope.arrendador = {};

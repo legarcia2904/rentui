@@ -1,0 +1,83 @@
+<h1>Gestionar Casas</h1>
+<a href="#/"> Inicio</a>
+<a href="#!arrendadores"> Arrendadores</a>
+</br>
+</br>
+<!--Datos Casas-->
+<div class="panel panel-default">
+    <div class="panel-heading">Listado de Casas</div>
+    <div class="panel-body">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <td>Dirección</td>
+                <td>Habitaciones</td>
+                <td>Precio</td>
+                <td>Contrato</td>
+                <td></td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="casa in casas" >
+                <td>{{casa.direccion}}</td>
+                <td>{{casa.habitaciones}}</td>
+                <td>{{casa.precio}}</td>
+                <td>{{casa.contrato}}</td>
+                <td>
+                    <a ng-click="findCasa(casa._id)" title="Listar"><span class="fa fa-eye fa-fw"></span></a>&nbsp;&nbsp;&nbsp;
+                    <a ng-click="showCasa(casa._id)" title="Modificar"><span class="fa fa-pencil fa-fw"></span></a>&nbsp;&nbsp;
+                    <a ng-click="deleteCasa(casa._id)" title="Borrar"><span class="fa fa-trash fa-fw"></span></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<!-- fin Datos Casas -->
+<!--Inicio Formulario Casas-->
+<div class="panel panel-default">
+    <div class="panel-heading">Formulario de casas</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <input id="id" class="form-control" type="hidden" ng-model="casa._id"><br>
+                    <div class="col-md-3">
+                        <label for="direccion">Dirección</label>
+                        <input id="direccion" class="form-control" type="text" ng-model="casa.direccion"><br>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="latitud">Latitud</label>
+                        <input id="latitud" class="form-control" type="text" ng-model="casa.latitud"><br>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="longitud">Longitud</label>
+                        <input id="longitud" class="form-control" type="text" ng-model="casa.longitud"><br>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="habitaciones">Habitaciones</label>
+                        <input id="habitaciones" class="form-control" type="text" ng-model="casa.habitaciones"><br>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="precio">Precio</label>
+                        <input id="precio" class="form-control" type="text" ng-model="casa.precio"><br>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="contrato">Contrato</label>
+                        <input id="contrato" class="form-control" type="text" ng-model="casa.contrato"><br>
+                    </div>
+                    <div class="col-md-3">
+                        <select ng-model ="casa.arrendador">
+                            <option ng-repeat="arrendador in arrendadores" value=arrendador.id> {{arrendador.nombre}} {{arrendador.apellidos}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-danger" ng-click="addCasa()">Crear</button>&nbsp;&nbsp;
+        <button type="button" class="btn btn-danger" ng-click="updateCasa(casa)">Modificar</button>
+    </div>
+</div>
+<!--Fin Formulario Casas-->
