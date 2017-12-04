@@ -6,8 +6,10 @@ function CasaController($scope, Casa){
     $scope.titulo = 'Casas en Renta';
 
     $scope.casa = {};
+    $scope.arrendador = {};
     Casa.getCasas();
     $scope.casas = Casa.casas;
+    $scope.arrendadores = Arrendador.arrendadores;
     $scope.casas_ind = {};
     $scope.casas_edit = {};
 
@@ -48,7 +50,6 @@ function ArrendadorController($scope, Arrendador){
     $scope.titulo = 'Arrendadores';
 
     $scope.arrendador = {};
-    Arrendador.getArrendadores();
     $scope.arrendadores = Arrendador.arrendadores;
     $scope.arrendadores_ind = {};
     $scope.arrendadores_edit = {};

@@ -68,8 +68,9 @@
                         <input id="contrato" class="form-control" type="text" ng-model="casa.contrato"><br>
                     </div>
                     <div class="col-md-3">
-                        <select ng-model ="casa.arrendador">
-                            <option ng-repeat="arrendador in arrendadores" value=arrendador.id> {{arrendador.nombre}} {{arrendador.apellidos}}</option>
+                        <label for="autor">Arrendador</label>
+                        <select id="autor" class="form-control" ng-model="casa.arrendador">
+                            <option value="{{arrendador.nombre}} {{arrendador.apellidos}}" ng-repeat="arrendador in arrendadores">{{arrendador.nombre}} {{arrendador.apellidos}} </option>
                         </select>
                     </div>
                 </div>
@@ -78,6 +79,12 @@
 
         <button type="button" class="btn btn-danger" ng-click="addCasa()">Crear</button>&nbsp;&nbsp;
         <button type="button" class="btn btn-danger" ng-click="updateCasa(casa)">Modificar</button>
+
+        <!-- Mapa-->
+        <ng-map zoom="15" center="[{{casa.latitud}}, {{casa.longitud}}]">
+            <marker id="marcador" position="[{{casa.latitud}}, {{casa.longitud}}]" animation="Animation.DROP"></marker>
+        </ng-map>
+
     </div>
 </div>
 <!--Fin Formulario Casas-->

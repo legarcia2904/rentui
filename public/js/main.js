@@ -1,4 +1,4 @@
-angular.module('rentuiApp',['ngRoute','controladores.rentui']).config(configurar);
+angular.module('rentuiApp',['ngRoute','controladores.rentui', 'ngMap']).config(configurar);
 
 function configurar($routeProvider) {
     $routeProvider
@@ -11,6 +11,9 @@ function configurar($routeProvider) {
             resolve:{
                 casasPromise: ['Casa', function (Casa) {
                     Casa.getCasas();
+                }],
+                arrendadoresPromise: ['Arrendador', function (Arrendador) {
+                    Arrendador.getArrendadores();
                 }]
             }
         })

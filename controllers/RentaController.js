@@ -174,19 +174,20 @@ exports.getArrendadorDadoId = function(req, res, next){
         }
     });
 };
+
 //FUNCION QUE ACTUALIZA EL NOMBRE DEL AUTOR QUE SE ENVIO
 exports.updateArrendador= function(req,res,next){
-    console.log('PUT /arrendadores/:nombre');
+    console.log('PUT /arrendadores/:id');
     console.log(req.body);
-    console.log(req.params.nombre);
+    console.log(req.params.id);
 
-    Arrendador.update({_id: req.params.nombre},{$set:{nombre:req.body.nombre,apellidos:req.body.apellidos}},function(err, casas){
+    Arrendador.update({_id: req.params.id},{$set:{nombre:req.body.nombre,apellidos:req.body.apellidos,telefono:req.body.telefono,correo:req.body.correo}},function(err, casas){
         if(err){
             res.send(500, err.message);
             console.log('error');
         }else{
             console.log('bien');
-            Arrendador.find({_id: req.params.nombre},function(err,casas){
+            Arrendador.find({_id: req.params.id},function(err,casas){
                 if(err){
                     res.send(500, err.message);
                 }else{
@@ -197,33 +198,11 @@ exports.updateArrendador= function(req,res,next){
             });
 
         }
+
     });
 };
 
-
-//FUNCION QUE ACTUALIZA LA INFORMACION DE UN ARRENDADOR ESPECIFICADO EN EL ID
-exports.updateArrendadorDadoId = function(req,res,next){
-    console.log('PUT /arrendadores/:id');
-    console.log(req.params.id);
-    console.log(req.body);
-    //
-    Arrendador.update({_id: req.params.id},{$set:{
-            nombre:req.body.nombre,
-            apellidos:req.body.apellidos,
-            telefono:req.body.telefono,
-            correo:req.body.correo,
-    }},function(err, arrendadorActualizado){
-        if(err){
-            res.send(500, err.message);
-            console.log('error');
-        }else{
-            console.log('bien');
-            res.status(200).send(arrendadorActualizado);
-        }
-    });
-};
-
-//FUNCION QUE ELIMINA LOS LIBROS DE UN AUTOR ESPECIFICADO
+//FUNCION QUE ELIMINA LOS LIBROS DE UN AUTOR ESPECIFICADO OK
 exports.deleteArrendador = function(req,res,next){
     console.log('DELETE /arrendadores/:id');
     console.log(req.params.id);

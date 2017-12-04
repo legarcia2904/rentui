@@ -29,15 +29,12 @@ router.route('/arrendadores')
     .get(Ctrl.getArrendadores)//devolver todos los arrendadores
     .post(upload.array(),Ctrl.addArrendador); //Crea un nuevo arrendador
 
-router.route('/arrendadores/:nombre')
-    .put(upload.array(),Ctrl.updateArrendador);  //Actualiza un arrendador dado su nombre
-
 router.route('/arrendadores/:id/casas')
     .get(Ctrl.getByArrendador);  //Devuelve las casas de un arrendador dado su ID
 
 router.route('/arrendadores/:id')
     .get(Ctrl.getArrendadorDadoId) //Devuelve el arrendador con el ID indicado.
-    .put(upload.array(),Ctrl.updateArrendadorDadoId)  //Actualiza el arrendador con el ID indicado.
+    .put(upload.array(),Ctrl.updateArrendador)  //Actualiza el arrendador con el ID indicado.
     .delete(Ctrl.deleteArrendador);  //Elimina un arrendador dado su ID
 
 module.exports = router;
