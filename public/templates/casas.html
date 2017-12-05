@@ -115,3 +115,10 @@
     </div>
 </div>
 <!--Fin Formulario Casas-->
+<div>
+    <ng-map id="map" center="31.8674425,-116.6239668" zoom="4" on-click="getpos($event)">
+        <marker position="{{latlng}}" title="Seleccionar lat y long" on-dragend="getpos($event)"
+                animation="Animation.BOUNCE" animation="DROP" draggable="true"></marker>
+    </ng-map>
+    {{latlng}}
+</div>

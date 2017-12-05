@@ -44,6 +44,27 @@ function CasaController($scope, Casa, Arrendador){
         $scope.casa = {};
         Casa.getCasas();
     };
+
+    $scope.testCtrl = function(event){
+        $scope.latlng = [-25.363882,131.044922];
+        $scope.getpos = function(event){
+            $scope.latlng = [event.latLng.lat(), event.latLng.lng()];
+        };
+    };
+
+    // angular.module('myapp', ['ngMap']).run(function($rootScope) {
+    //     $rootScope.$on('mapInitialized', function(evt,map) {
+    //         $rootScope.map = map;
+    //         $rootScope.$apply();
+    //     });
+    // })
+    //     .controller('testCtrl', ['$scope', function testCtrl($scope) {
+    //         $scope.latlng = [-25.363882,131.044922];
+    //         $scope.getpos = function(event){
+    //             $scope.latlng = [event.latLng.lat(), event.latLng.lng()];
+    //         };
+    //
+    //     }]);
 };
 
 function ArrendadorController($scope, Arrendador){
